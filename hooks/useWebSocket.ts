@@ -26,7 +26,9 @@ const SYMBOLS = [
 
 export function useWebSocket() {
   const wsRef = useRef<WebSocket | null>(null);
-  const reconnectRef = useRef<ReturnType<typeof setTimeout>>();
+  const reconnectRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
   const updateLivePrice = useMarketStore((s) => s.updateLivePrice);
 
   useEffect(() => {
