@@ -218,7 +218,10 @@ export default function CoinDetailModal() {
                   }}
                   labelStyle={{ color: "#6666aa" }}
                   itemStyle={{ color: isUp ? "#00d4aa" : "#ff4d6d" }}
-                  formatter={(v: number) => [formatCurrency(v), "Price"]}
+                  formatter={(v: number | undefined) => [
+                    formatCurrency(v ?? 0),
+                    "Price",
+                  ]}
                 />
                 <Area
                   type="monotone"
