@@ -16,8 +16,8 @@ export default function Sparkline({
   if (!data || data.length < 2) {
     return (
       <div
-        style={{ width, height }}
         className="flex items-center justify-center text-brand-muted text-xs"
+        style={{ width: `${width}px`, height: `${height}px` }}
       >
         —
       </div>

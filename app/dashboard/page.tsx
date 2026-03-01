@@ -11,36 +11,38 @@ import GlobeScene from "@/components/globe/GlobeScene";
 export default function DashboardPage() {
   return (
     <DataBootstrapper>
-      <div className="flex flex-col h-screen overflow-hidden">
-        {/* Top bar */}
+      {/* Full-height app shell */}
+      <div className="flex flex-col h-screen overflow-hidden bg-surface bg-grid">
+        {/* ── Sticky top bars ───────────────────────── */}
         <Navbar />
-
-        {/* Live ticker strip */}
         <TickerBar />
 
-        {/* Main layout */}
+        {/* ── Main content area ─────────────────────── */}
         <div className="flex flex-1 overflow-hidden">
-          {/* Scrollable content area */}
-          <main className="flex-1 overflow-y-auto p-5 space-y-5">
-            {/* Stats cards */}
-            <StatsCards />
+          {/* Scrollable main */}
+          <main className="flex-1 overflow-y-auto">
+            <div className="p-4 md:p-5 space-y-4 max-w-screen-2xl mx-auto">
+              {/* Stats row */}
+              <StatsCards />
 
-            {/* Table + watchlist */}
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
-              <div className="xl:col-span-2">
-                <MarketTable />
+              {/* Table + Watchlist */}
+              <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+                <div className="xl:col-span-2">
+                  <MarketTable />
+                </div>
+                {/* Watchlist — stacks below table on mobile/tablet, side on xl */}
+                <div className="xl:col-span-1">
+                  <WatchlistPanel />
+                </div>
               </div>
-              <div>
-                <WatchlistPanel />
-              </div>
+
+              {/* Bottom breathing room */}
+              <div className="h-6" />
             </div>
-
-            {/* Bottom padding */}
-            <div className="h-4" />
           </main>
 
-          {/* Three.js Globe sidebar (hidden on small screens) */}
-          <aside className="hidden lg:flex flex-col w-64 xl:w-72 border-l border-surface-border bg-surface-card shrink-0">
+          {/* ── Globe sidebar — hidden below lg ───────── */}
+          <aside className="hidden lg:flex flex-col w-60 xl:w-72 border-l border-surface-border bg-surface-card shrink-0">
             <Suspense
               fallback={
                 <div className="flex-1 flex items-center justify-center">
@@ -54,7 +56,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Coin detail modal — renders on top of everything */}
+      {/* Coin modal — portals on top of everything */}
       <CoinDetailModal />
     </DataBootstrapper>
   );
