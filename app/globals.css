@@ -1,8 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap");
 
 :root {
   --font-jetbrains: "JetBrains Mono", monospace;
@@ -112,10 +111,15 @@ body {
   box-shadow: 0 0 20px rgba(77, 159, 255, 0.25);
 }
 
+.barr {
+  padding: 10px;
+  font-size: 20px;
+}
+
 /* ── Card base ───────────────────────────────────────────────────── */
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: #0f0f20;
+  border: 1px solid #252540;
   border-radius: 12px;
 }
 

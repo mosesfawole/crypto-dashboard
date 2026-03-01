@@ -8,10 +8,10 @@ const config = {
     extend: {
       colors: {
         surface: {
-          DEFAULT: "#08080f",
-          card: "#0e0e1c",
-          hover: "#13132a",
-          border: "#1e1e38",
+          DEFAULT: "#05050e",
+          card: "#0f0f20",
+          hover: "#161628",
+          border: "#252540",
         },
         brand: {
           green: "#00d4aa",

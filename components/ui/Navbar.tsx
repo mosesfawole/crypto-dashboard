@@ -17,13 +17,13 @@ export default function Navbar() {
     : null;
 
   return (
-    <nav className="h-14 border-b border-surface-border bg-surface-card/80 backdrop-blur-md flex items-center px-4 md:px-6 gap-3 shrink-0 sticky top-0 z-30">
+    <nav className="barr border-b border-surface-border bg-surface-card/80 backdrop-blur-md flex items-center px-4 md:px-8 gap-3 sticky top-0 z-30 ">
       {/* Logo */}
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex items-center gap-4 p-6 shrink-0">
         <div className="w-7 h-7 rounded-lg bg-brand-green/10 border border-brand-green/30 flex items-center justify-center">
           <Activity size={14} className="text-brand-green" />
         </div>
-        <span className="font-display font-bold text-white tracking-tight text-sm">
+        <span className="font-display font-bold  text-white tracking-tight text-sm">
           Crypto<span className="text-brand-green">View</span>
         </span>
       </div>
@@ -39,7 +39,7 @@ export default function Navbar() {
           placeholder="Search coins..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full bg-surface border border-surface-border rounded-lg pl-8 pr-3 py-1.5
+          className="w-full bg-surface border border-surface-border rounded-lg pl-8 pr-3 py-4
                      text-xs text-white placeholder:text-brand-muted
                      outline-none focus:border-brand-blue/60 transition-colors"
         />
@@ -68,7 +68,7 @@ export default function Navbar() {
 
         {/* Mobile search toggle */}
         <button
-          title="toggle"
+          title="search"
           className="md:hidden text-brand-muted hover:text-white p-1.5 rounded-lg border border-surface-border bg-surface"
           onClick={() => setSearchOpen(!searchOpen)}
         >
@@ -90,7 +90,7 @@ export default function Navbar() {
               placeholder="Search coins..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-surface border border-surface-border rounded-lg pl-8 pr-3 py-2
+              className="w-full bg-surface border border-surface-border rounded-lg pl-8 pr-3 py-4
                          text-xs text-white placeholder:text-brand-muted outline-none focus:border-brand-blue/60"
             />
           </div>

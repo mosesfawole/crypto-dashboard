@@ -31,8 +31,13 @@ function StatCard({
 }: StatCardProps) {
   return (
     <div
-      className="relative overflow-hidden rounded-xl border border-surface-border bg-surface-card p-4 animate-slide-up"
-      style={{ animationFillMode: "both" }}
+      className="relative overflow-hidden rounded-xl p-4 animate-slide-up"
+      style={{
+        animationFillMode: "both",
+        background: "#0f0f20",
+        border: "1px solid #252540",
+        borderBottom: `2px solid ${accent}`,
+      }}
     >
       {/* Ambient glow in corner */}
       <div

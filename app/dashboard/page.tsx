@@ -41,18 +41,22 @@ export default function DashboardPage() {
             </div>
           </main>
 
-          {/* ── Globe sidebar — hidden below lg ───────── */}
-          <aside className="hidden lg:flex flex-col w-60 xl:w-72 border-l border-surface-border bg-surface-card shrink-0">
-            <Suspense
-              fallback={
-                <div className="flex-1 flex items-center justify-center">
-                  <div className="w-5 h-5 border-2 border-brand-blue border-t-transparent rounded-full animate-spin" />
-                </div>
-              }
-            >
-              <GlobeScene />
-            </Suspense>
-          </aside>
+          <main className="flex-1 overflow-y-auto">
+            <div className="p-4 md:p-5 space-y-4 max-w-screen-2xl mx-auto">
+              <StatsCards />
+
+              {/* Globe full width */}
+              <Suspense
+                fallback={
+                  <div className="h-64 card flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-brand-blue border-t-transparent rounded-full animate-spin" />
+                  </div>
+                }
+              >
+                <GlobeScene />
+              </Suspense>
+            </div>
+          </main>
         </div>
       </div>
 
