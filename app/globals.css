@@ -1,3 +1,144 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  --font-jetbrains: "JetBrains Mono", monospace;
+  --font-syne: "Syne", sans-serif;
+  --green: #00d4aa;
+  --red: #ff4d6d;
+  --blue: #4d9fff;
+  --surface: #08080f;
+  --card: #0e0e1c;
+  --border: #1e1e38;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--surface);
+  color: #e0e0f4;
+  font-family: var(--font-jetbrains);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1e38;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2e2e50;
+}
+
+/* ── Ticker ──────────────────────────────────────────────────────── */
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 50s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Price flash ─────────────────────────────────────────────────── */
+@keyframes flash-green {
+  0%,
+  100% {
+    color: inherit;
+  }
+  50% {
+    color: var(--green);
+    text-shadow: 0 0 8px rgba(0, 212, 170, 0.6);
+  }
+}
+@keyframes flash-red {
+  0%,
+  100% {
+    color: inherit;
+  }
+  50% {
+    color: var(--red);
+    text-shadow: 0 0 8px rgba(255, 77, 109, 0.6);
+  }
+}
+.flash-green {
+  animation: flash-green 0.6s ease;
+}
+.flash-red {
+  animation: flash-red 0.6s ease;
+}
+
+/* ── Grid background ─────────────────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(78, 78, 180, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 78, 180, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glow accents ────────────────────────────────────────────────── */
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.25);
+}
+.glow-red {
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.25);
+}
+.glow-blue {
+  box-shadow: 0 0 20px rgba(77, 159, 255, 0.25);
+}
+
+/* ── Card base ───────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* ── Gradient border ─────────────────────────────────────────────── */
+.gradient-border {
+  position: relative;
+  background: var(--card);
+  border-radius: 12px;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, #1e1e38, #2e1e50, #1e2e50);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
