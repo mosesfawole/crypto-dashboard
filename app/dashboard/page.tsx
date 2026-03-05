@@ -43,7 +43,7 @@ export default function DashboardPage() {
 
           <main className="flex-1 overflow-y-auto">
             <div className="p-4 md:p-5 space-y-4 max-w-screen-2xl mx-auto">
-              <StatsCards />
+            
 
               {/* Globe full width */}
               <Suspense
